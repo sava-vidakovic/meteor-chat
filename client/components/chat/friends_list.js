@@ -14,6 +14,13 @@ Template.FriendsList.onCreated(function () {
   })
 });
 
+Template.FriendsList.events({
+  'click .friend': function(){
+    Session.set('currentRoom', this);
+    Session.set('roomId', privateRoomId(this._id))
+  }
+});
+
 Template.FriendsList.helpers({
   users: function () {
     return Meteor.users.find(
@@ -25,3 +32,7 @@ Template.FriendsList.helpers({
     return this.status.online;
   }
 });
+
+function privateRoomId(friendId) {
+  return friendId + Meteor.userId();
+}

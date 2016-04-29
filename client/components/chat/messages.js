@@ -6,3 +6,15 @@ Template.Messages.onRendered(function(){
   };
   $('.messages').niceScroll(conf);
 });
+
+Template.Messages.helpers({
+  roomName: function(){
+    var room = Session.get('currentRoom');
+    if(room){
+      return Session.get('currentRoom').username;
+    }
+  },
+  roomPhoto: function(){
+    return Session.get('currentRoom').profile.avatar;
+  }
+});
