@@ -1,4 +1,4 @@
-Template.FriendsList.onRendered(function(){
+Template.FriendsList.onRendered(function () {
   var conf = {
     cursorcolor: "#696c75",
     cursorwidth: "4px",
@@ -7,15 +7,18 @@ Template.FriendsList.onRendered(function(){
   $('.list-friends').niceScroll(conf);
 });
 
-Template.FriendsList.onCreated(function(){
+Template.FriendsList.onCreated(function () {
   var self = this;
-  self.autorun(function(){
+  self.autorun(function () {
     self.subscribe('userList')
   })
 });
 
 Template.FriendsList.helpers({
-  users: function() {
-    return Meteor.users.find();
+  users: function () {
+    return Meteor.users.find({_id: {$ne: Meteor.userId()}});
+  },
+  online: function () {
+    return this.status.online;
   }
 });
