@@ -35,6 +35,7 @@ raix:handlebar-helpers
 kadira:flow-router
 kadira:blaze-layout
 mizzao:user-status
+session
 
 # Development
 digilord:faker
