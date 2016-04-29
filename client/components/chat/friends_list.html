@@ -8,10 +8,14 @@
       {{#each users}}
         <li>
           <img width="50" height="50"
-               src="http://cs625730.vk.me/v625730358/1126a/qEjM1AnybRA.jpg">
+               src="{{profile.avatar}}">
           <div class="info">
-            <div class="user">{{email}}</div>
+            <div class="user">{{username}}</div>
+            {{#if online}}
             <div class="status on"> online</div>
+            {{else}}
+              <div class="status off"> offline </div>
+            {{/if}}
           </div>
         </li>
       {{/each}}
