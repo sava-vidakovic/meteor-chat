@@ -34,5 +34,8 @@ Template.FriendsList.helpers({
 });
 
 function privateRoomId(friendId) {
-  return friendId + Meteor.userId();
+  var array = _.sortBy([friendId, Meteor.userId()], function(id){
+    return id;
+  });
+  return array.join('');
 }

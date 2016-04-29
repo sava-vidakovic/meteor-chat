@@ -9,10 +9,12 @@ AccountsTemplates.addFields([
 
 Accounts.onLogin(function(){
   closeModal();
-  FlowRouter.go('chat')
+  FlowRouter.go('chat');
 });
 Accounts.onLogout(function(){
-  FlowRouter.go('home')
+  FlowRouter.go('home');
+  Session.set('roomId', null);
+  Session.set('currentRoom', null);
 });
 
 function closeModal() {
