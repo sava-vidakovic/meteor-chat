@@ -16,14 +16,26 @@ standard-minifier-css   # CSS minifier run for production mode
 standard-minifier-js    # JS minifier run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
-meteortoys:allthings
 
 erasaur:meteor-lodash
 less
-fortawesome:fontawesome
-aldeed:collection2
 jackyqiu:meteor-jquery-nicescroll
-accounts-ui
+fortawesome:fontawesome
+nahue:simple-line-icons
+materialize:materialize
+aldeed:template-extension
+
+
+aldeed:collection2
+accounts-base
+useraccounts:materialize
 accounts-password
+gwendall:accounts-helpers
+raix:handlebar-helpers
 kadira:flow-router
 kadira:blaze-layout
+mizzao:user-status
+
+# Development
+digilord:faker
+meteortoys:allthings

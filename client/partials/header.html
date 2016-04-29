@@ -1,3 +1,17 @@
 <template name="Header">
-  {{> loginButtons}}
+  <nav>
+    <div class="nav-wrapper">
+      <a href="" class="brand-logo">ChatApp</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          {{#if currentUser}}
+            <li><a href="" class="logout-user"><i class="icon-logout icons"></i></a></li>
+            {{currentUser.profile.name}}
+          {{else}}
+            <li><a href="" class="show-login-modal">Login</a></li>
+          {{/if}}
+        </ul>
+    </div>
+  </nav>
+  {{> LoginModal}}
 </template>
+
