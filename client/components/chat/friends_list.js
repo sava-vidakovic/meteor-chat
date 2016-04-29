@@ -16,7 +16,10 @@ Template.FriendsList.onCreated(function () {
 
 Template.FriendsList.helpers({
   users: function () {
-    return Meteor.users.find({_id: {$ne: Meteor.userId()}});
+    return Meteor.users.find(
+        {_id: {$ne: Meteor.userId()}},
+        {sort: {"status.online": -1}}
+    );
   },
   online: function () {
     return this.status.online;
