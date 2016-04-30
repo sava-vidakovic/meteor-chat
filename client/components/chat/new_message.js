@@ -4,6 +4,7 @@ Template.NewMessage.events({
   },
   'keydown textarea': function(event){
     if(event.which == 13){
+      event.preventDefault();
       newMessage();
     }
   }
@@ -11,13 +12,13 @@ Template.NewMessage.events({
 
 
 function newMessage() {
-  var message = document.getElementById('message-text');
+  var message = $('#message-text');
   Messages.insert({
-    content: message.value,
+    content: message.val(),
     roomId: Session.get('roomId')
   });
-  message.value = null;
+  message.val('');
   setTimeout(function(){
-    $('.messages').getNiceScroll(0).doScrollTop(99999999999, 200);
+    $('.messages').getNiceScroll(0).doScrollTop(99999999999, 0);
   }, 200)
 }
