@@ -21,13 +21,15 @@ Template.Messages.helpers({
     }
   },
   roomPhoto: function(){
-    return currentRoom().profile.avatar;
+    return UserAvatar.getAvatar(currentRoom());
   },
   messages: function(){
     return Messages.find({roomId: Session.get('roomId')});
+  },
+  userOffline: function(){
+    return !currentRoom().status.online;
   }
 });
-
 
 function initScroll(){
   var element = $('.messages');

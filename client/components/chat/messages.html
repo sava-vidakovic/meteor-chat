@@ -2,9 +2,8 @@
   <div class="chat">
     <div class="top">
       {{#if roomName}}
-        <div class="avatar">
-          <img width="50" height="50"
-               src="{{roomPhoto}}">
+        <div class="avatar {{#if userOffline }}user-offline{{/if}}">
+          <img width="50" height="50" src="{{ roomPhoto }}">
         </div>
         <div class="info">
           <div class="name">{{roomName}}</div>

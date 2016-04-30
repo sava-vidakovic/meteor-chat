@@ -8,3 +8,9 @@ Template.Header.events({
     Meteor.logout();
   }
 });
+
+Template.Header.helpers({
+  avatar: function(){
+    return UserAvatar.getAvatar(Meteor.user())
+  }
+});

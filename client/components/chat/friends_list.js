@@ -30,6 +30,9 @@ Template.FriendsList.helpers({
   },
   online: function () {
     return this.status.online;
+  },
+  avatar: function(user) {
+    return UserAvatar.getAvatar(user);
   }
 });
 

@@ -20,4 +20,3 @@ Accounts.onLogout(function(){
 function closeModal() {
   $('#login-modal').closeModal();
 }
-

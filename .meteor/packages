@@ -35,6 +35,8 @@ kadira:flow-router
 kadira:blaze-layout
 mizzao:user-status
 session
+tinytest
+chat:user-avatar
 
 # Development
 digilord:faker
