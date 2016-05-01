@@ -2,10 +2,7 @@ Messages = new Mongo.Collection('messages');
 
 MessagesSchema = new SimpleSchema({
   author: {
-    type: String,
-    autoValue: function () {
-      return Meteor.userId();
-    }
+    type: String
   },
   content: {
     type: String
@@ -18,11 +15,20 @@ MessagesSchema = new SimpleSchema({
   },
   roomId: {
     type: String
+  },
+  read: {
+    type: Boolean,
+    autoValue: function() {
+      if (this.isInsert) {
+        return false;
+      }
+
+    }
   }
 });
 
 Messages.allow({
-  insert: function (userId, doc) {
+  insert: function (userId) {
     return !!userId;
   }
 });

@@ -1,0 +1,18 @@
+<template name="Friend">
+  <li class="friend">
+    <img width="50" height="50"
+         src="{{ avatar this}}">
+    <div class="info">
+      <div class="user">{{username}}</div>
+      {{#if online}}
+        <div class="status on"> online</div>
+      {{else}}
+        <div class="status off"> offline </div>
+      {{/if}}
+      {{#if unreadMessages }}
+        <span class="new badge">{{ unreadMessages}}</span>
+      {{/if}}
+
+    </div>
+  </li>
+</template>

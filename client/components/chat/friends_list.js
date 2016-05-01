@@ -10,7 +10,7 @@ Template.FriendsList.onRendered(function () {
 Template.FriendsList.onCreated(function () {
   var self = this;
   self.autorun(function () {
-    self.subscribe('userList')
+    self.subscribe('userList');
   })
 });
 
@@ -27,12 +27,6 @@ Template.FriendsList.helpers({
         {_id: {$ne: Meteor.userId()}},
         {sort: {"status.online": -1}}
     );
-  },
-  online: function () {
-    return this.status.online;
-  },
-  avatar: function(user) {
-    return UserAvatar.getAvatar(user);
   }
 });
 

@@ -5,3 +5,7 @@ Meteor.publish('userList', function () {
 Meteor.publish('messages', function (roomId) {
   return Messages.find({roomId: roomId});
 });
+
+Meteor.publish('unreadMessages', function(roomId){
+  return Messages.find({roomId: roomId, read: false})
+});

@@ -7,6 +7,9 @@ Template.NewMessage.events({
       event.preventDefault();
       newMessage();
     }
+  },
+  'focus textarea': function(){
+    Meteor.call('markAsRead', Session.get('roomId'));
   }
 });
 
@@ -14,6 +17,7 @@ Template.NewMessage.events({
 function newMessage() {
   var message = $('#message-text');
   Messages.insert({
+    author: Meteor.userId(),
     content: message.val(),
     roomId: Session.get('roomId')
   });
